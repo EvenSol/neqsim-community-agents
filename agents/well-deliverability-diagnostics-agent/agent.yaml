@@ -1,0 +1,29 @@
+name: well-deliverability-diagnostics-agent
+description: Coordinates screening-level well deliverability diagnosis to distinguish reservoir, completion, tubing, artificial-lift, and facility-backpressure constraints.
+required_skills:
+- neqsim-subsea-and-wells
+- neqsim-production-network-routing
+- neqsim-model-calibration-and-data-reconciliation
+- neqsim-root-cause-analysis
+supported_domains:
+- well-performance
+- production-technology
+- nodal-analysis
+inputs:
+- reservoir_and_fluid_basis
+- well_completion_and_tubing_description
+- well_test_rates_and_pressures
+- facility_backpressure_and_choke_state
+- operating_events_and_uncertainty
+outputs:
+- screening_ipr_vlp_operating_points
+- ranked_deliverability_constraints
+- rate_and_pressure_residuals
+- recommended_discriminating_well_tests
+- validation_and_human_review_checklist
+human_review_required: true
+version: 0.1.0
+agent_type: community-agent
+status: draft
+trust_level: community
+requires_mcp_tools: []

@@ -140,6 +140,10 @@ Each catalog entry maps to a harness `Agent` (name, description, `allowed_skills
 
 ## Initial Example Agents
 
+See the [Colab demonstration crosswalk](docs/COLAB_DEMONSTRATIONS.md) for ten
+source-provenance-checked, public synthetic workflows mapped to new or existing
+agent packages.
+
 | Agent | Purpose | Required skills |
 | --- | --- | --- |
 | [PVT Agent](agents/pvt-agent/README.md) | Fluid characterization, composition checks, phase behavior evaluation, and thermodynamic analysis | `neqsim-fluid-quality-check` |

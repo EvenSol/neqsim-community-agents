@@ -1,0 +1,31 @@
+name: gas-network-linepack-quality-agent
+description: Coordinates screening-level gas-network pressure, linepack, composition-front, and delivery-quality forecasting for source and demand changes.
+required_skills:
+- neqsim-fluid-quality-check
+- neqsim-production-network-routing
+- neqsim-pressure-drop-screening
+- neqsim-line-velocity-check
+- neqsim-uncertainty-quantification
+supported_domains:
+- gas-transport
+- network-operations
+- linepack
+- gas-quality
+inputs:
+- network_topology_geometry_and_volumes
+- source_compositions_pressures_and_nominations
+- delivery_demand_and_pressure_limits
+- gas_quality_specification
+- initial_linepack_and_uncertainty
+outputs:
+- section_and_total_linepack_forecast
+- delivery_pressure_and_quality_front_arrival
+- constraint_alarm_timeline
+- balancing_or_blending_action_screen
+- validation_and_human_review_package
+human_review_required: true
+version: 0.1.0
+agent_type: community-agent
+status: draft
+trust_level: community
+requires_mcp_tools: []

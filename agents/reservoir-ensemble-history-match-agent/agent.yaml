@@ -1,0 +1,30 @@
+name: reservoir-ensemble-history-match-agent
+description: Coordinates screening-level reservoir ensemble updating, history-match evidence, posterior forecasts, and uncertainty handoff to wells and facilities.
+required_skills:
+- neqsim-reservoir-depletion-screening
+- neqsim-uncertainty-quantification
+- neqsim-model-calibration-and-data-reconciliation
+- neqsim-production-network-routing
+supported_domains:
+- reservoir-engineering
+- history-matching
+- uncertainty
+- field-development
+inputs:
+- prior_ensemble_and_parameter_provenance
+- pressure_rate_and_fluid_history
+- observation_error_model
+- forecast_controls_and_constraints
+- facility_boundary_conditions
+outputs:
+- posterior_ensemble_weights_or_members
+- history_match_metrics_and_diagnostics
+- forecast_p10_p50_p90_with_realization_identity
+- well_and_facility_load_handoff
+- plausibility_limitations_and_human_review_record
+human_review_required: true
+version: 0.1.0
+agent_type: community-agent
+status: draft
+trust_level: community
+requires_mcp_tools: []

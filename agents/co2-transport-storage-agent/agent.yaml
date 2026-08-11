@@ -1,0 +1,32 @@
+name: co2-transport-storage-agent
+description: Coordinates screening-level CO2 composition, phase behavior, dense-phase transport, injection capacity, and storage constraint evaluation.
+required_skills:
+- neqsim-ccs-hydrogen
+- neqsim-phase-envelope
+- neqsim-fluid-quality-check
+- neqsim-pressure-drop-screening
+- neqsim-uncertainty-quantification
+- neqsim-process-safety
+supported_domains:
+- ccs
+- co2-transport
+- co2-storage
+- injection
+inputs:
+- co2_stream_composition_envelope
+- transport_inlet_state_and_pipeline_geometry
+- operating_and_phase_margin_limits
+- reservoir_injection_and_fracture_basis
+- uncertainty_scenarios_and_decision_criteria
+outputs:
+- phase_property_and_impurity_screen
+- pipeline_pressure_temperature_and_velocity_margins
+- multi_well_injectivity_screen
+- ranked_transport_storage_constraints
+- required_detailed_studies_and_human_review_record
+human_review_required: true
+version: 0.1.0
+agent_type: community-agent
+status: draft
+trust_level: community
+requires_mcp_tools: []

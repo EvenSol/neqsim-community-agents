@@ -1,0 +1,30 @@
+name: equipment-performance-degradation-agent
+description: Coordinates screening-level detection and diagnosis of compressor, heat-exchanger, and utility performance degradation from reconciled operating data.
+required_skills:
+- neqsim-plant-data
+- neqsim-model-calibration-and-data-reconciliation
+- neqsim-reliability-data-screening
+- neqsim-compressor-power-screening
+- neqsim-utility-balance-screening
+supported_domains:
+- asset-management
+- condition-monitoring
+- equipment-performance
+inputs:
+- equipment_reference_case_and_limits
+- validated_flow_pressure_temperature_and_power_tags
+- maintenance_and_operating_event_history
+- fluid_composition_and_thermodynamic_basis
+- measurement_uncertainty_and_alarm_policy
+outputs:
+- reconciled_performance_indicators
+- degradation_trends_and_change_points
+- ranked_equipment_or_sensor_hypotheses
+- maintenance_checks_and_data_requests
+- limitations_and_human_review_checklist
+human_review_required: true
+version: 0.1.0
+agent_type: community-agent
+status: draft
+trust_level: community
+requires_mcp_tools: []
