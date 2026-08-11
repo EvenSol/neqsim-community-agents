@@ -1,0 +1,30 @@
+name: production-shortfall-diagnostics-agent
+description: Coordinates screening-level production shortfall diagnosis across measured data, calibrated models, physical root causes, and production-loss allocation.
+required_skills:
+- neqsim-plant-data
+- neqsim-model-calibration-and-data-reconciliation
+- neqsim-root-cause-analysis
+- neqsim-production-optimization
+- neqsim-professional-reporting
+supported_domains:
+- production-operations
+- diagnostics
+- root-cause-analysis
+inputs:
+- production_loss_question_and_time_window
+- validated_operating_tags_and_events
+- fluid_and_process_model_basis
+- healthy_reference_or_expected_case
+- operating_constraints_and_uncertainties
+outputs:
+- reconciled_shortfall_and_loss_allocation
+- ranked_physical_hypotheses
+- evidence_for_and_against_each_hypothesis
+- discriminating_checks_and_next_measurements
+- assumptions_limitations_and_human_review_record
+human_review_required: true
+version: 0.1.0
+agent_type: community-agent
+status: draft
+trust_level: community
+requires_mcp_tools: []

@@ -4,7 +4,7 @@
 # consumed by the main NeqSim ecosystem.
 
 catalog_version: "1.0"
-last_updated: "2026-07-11"
+last_updated: "2026-08-11"
 trust: "community"
 
 agents:
@@ -608,3 +608,118 @@ agents:
       - insulation-and-cooldown
       - materials-and-mechanical
       - mesh-quality
+
+  - name: production-shortfall-diagnostics-agent
+    version: "0.1.0"
+    description: "Coordinates screening-level production shortfall diagnosis across measured data, calibrated models, physical root causes, and production-loss allocation."
+    repo: "equinor/neqsim-community-agents"
+    path: "agents/production-shortfall-diagnostics-agent/AGENT.md"
+    required_skills:
+      - neqsim-plant-data
+      - neqsim-model-calibration-and-data-reconciliation
+      - neqsim-root-cause-analysis
+      - neqsim-production-optimization
+      - neqsim-professional-reporting
+    supported_domains:
+      - production-operations
+      - diagnostics
+      - root-cause-analysis
+
+  - name: well-deliverability-diagnostics-agent
+    version: "0.1.0"
+    description: "Coordinates screening-level well deliverability diagnosis to distinguish reservoir, completion, tubing, artificial-lift, and facility-backpressure constraints."
+    repo: "equinor/neqsim-community-agents"
+    path: "agents/well-deliverability-diagnostics-agent/AGENT.md"
+    required_skills:
+      - neqsim-subsea-and-wells
+      - neqsim-production-network-routing
+      - neqsim-model-calibration-and-data-reconciliation
+      - neqsim-root-cause-analysis
+    supported_domains:
+      - well-performance
+      - production-technology
+      - nodal-analysis
+
+  - name: transient-operability-restart-agent
+    version: "0.1.0"
+    description: "Coordinates screening-level shutdown and restart qualification against transient hydraulic, thermal, liquid-inventory, control, and compressor-protection limits."
+    repo: "equinor/neqsim-community-agents"
+    path: "agents/transient-operability-restart-agent/AGENT.md"
+    required_skills:
+      - neqsim-dynamic-process-preparation
+      - neqsim-dynamic-simulation
+      - neqsim-controllability-operability
+      - neqsim-surf-cooldown-screening
+      - neqsim-compressor-antisurge-recycle
+    supported_domains:
+      - operations
+      - dynamic-simulation
+      - restart
+      - flow-assurance
+
+  - name: equipment-performance-degradation-agent
+    version: "0.1.0"
+    description: "Coordinates screening-level detection and diagnosis of compressor, heat-exchanger, and utility performance degradation from reconciled operating data."
+    repo: "equinor/neqsim-community-agents"
+    path: "agents/equipment-performance-degradation-agent/AGENT.md"
+    required_skills:
+      - neqsim-plant-data
+      - neqsim-model-calibration-and-data-reconciliation
+      - neqsim-reliability-data-screening
+      - neqsim-compressor-power-screening
+      - neqsim-utility-balance-screening
+    supported_domains:
+      - asset-management
+      - condition-monitoring
+      - equipment-performance
+
+  - name: gas-network-linepack-quality-agent
+    version: "0.1.0"
+    description: "Coordinates screening-level gas-network pressure, linepack, composition-front, and delivery-quality forecasting for source and demand changes."
+    repo: "equinor/neqsim-community-agents"
+    path: "agents/gas-network-linepack-quality-agent/AGENT.md"
+    required_skills:
+      - neqsim-fluid-quality-check
+      - neqsim-production-network-routing
+      - neqsim-pressure-drop-screening
+      - neqsim-line-velocity-check
+      - neqsim-uncertainty-quantification
+    supported_domains:
+      - gas-transport
+      - network-operations
+      - linepack
+      - gas-quality
+
+  - name: reservoir-ensemble-history-match-agent
+    version: "0.1.0"
+    description: "Coordinates screening-level reservoir ensemble updating, history-match evidence, posterior forecasts, and uncertainty handoff to wells and facilities."
+    repo: "equinor/neqsim-community-agents"
+    path: "agents/reservoir-ensemble-history-match-agent/AGENT.md"
+    required_skills:
+      - neqsim-reservoir-depletion-screening
+      - neqsim-uncertainty-quantification
+      - neqsim-model-calibration-and-data-reconciliation
+      - neqsim-production-network-routing
+    supported_domains:
+      - reservoir-engineering
+      - history-matching
+      - uncertainty
+      - field-development
+
+  - name: co2-transport-storage-agent
+    version: "0.1.0"
+    description: "Coordinates screening-level CO2 composition, phase behavior, dense-phase transport, injection capacity, and storage constraint evaluation."
+    repo: "equinor/neqsim-community-agents"
+    path: "agents/co2-transport-storage-agent/AGENT.md"
+    required_skills:
+      - neqsim-ccs-hydrogen
+      - neqsim-phase-envelope
+      - neqsim-fluid-quality-check
+      - neqsim-pressure-drop-screening
+      - neqsim-uncertainty-quantification
+      - neqsim-process-safety
+    supported_domains:
+      - ccs
+      - co2-transport
+      - co2-storage
+      - injection

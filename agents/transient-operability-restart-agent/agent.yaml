@@ -1,0 +1,31 @@
+name: transient-operability-restart-agent
+description: Coordinates screening-level shutdown and restart qualification against transient hydraulic, thermal, liquid-inventory, control, and compressor-protection limits.
+required_skills:
+- neqsim-dynamic-process-preparation
+- neqsim-dynamic-simulation
+- neqsim-controllability-operability
+- neqsim-surf-cooldown-screening
+- neqsim-compressor-antisurge-recycle
+supported_domains:
+- operations
+- dynamic-simulation
+- restart
+- flow-assurance
+inputs:
+- shutdown_duration_and_initial_state
+- restart_sequence_and_ramp_candidates
+- boundary_conditions_and_trip_events
+- pressure_temperature_level_and_compressor_limits
+- fluid_route_control_and_inventory_basis
+outputs:
+- event_timeline_and_state_trajectories
+- operating_envelope_violations
+- restart_strategy_comparison
+- hold_points_abort_criteria_and_required_studies
+- assumptions_and_human_review_record
+human_review_required: true
+version: 0.1.0
+agent_type: community-agent
+status: draft
+trust_level: community
+requires_mcp_tools: []
