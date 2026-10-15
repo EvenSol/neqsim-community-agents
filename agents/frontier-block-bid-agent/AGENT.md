@@ -1,11 +1,12 @@
 ---
 name: frontier-block-bid-agent
-description: Coordinates public, screening-level evaluation of a bid on an exploration block under a production sharing contract - resource and fluid basis, near-field tie-back versus stand-alone concept, and PSC bid economics with the break-even offered profit-oil share - before a validated NeqSim study.
-version: 0.1.0
+description: Coordinates public, screening-level evaluation of a bid on an exploration block under a production sharing contract - resource and fluid basis, infrastructure and host screening, near-field tie-back versus stand-alone, the Brazilian Annex XX profit-oil table, and PSC bid economics with break-even share, chance of discovery and volume - before a validated NeqSim study.
+version: 0.2.0
 required_skills:
 - neqsim-psc-bid-economics-screening
 - neqsim-anp-open-data
 - neqsim-brazil-presalt-analogue-basis
+- neqsim-brazil-offshore-infrastructure-market
 - neqsim-asset-value-npv-screening
 context_skills:
 - neqsim-resource-classification-screening
@@ -40,7 +41,10 @@ and economics studies for any quantitative decision.
 # Outputs
 
 - Declared low/base/high resource and fluid basis with an assumption register.
-- Per-concept EMV, break-even profit-oil share, headroom and government take.
+- Per-concept EMV (forced development and with the development option), break-even profit-oil share, headroom and government take.
+- Effective Union profit-oil share (Annex XX table: offer plus adjustment by Brent and rate per producer).
+- Break-even chance of discovery, P50 volume for EMV = 0, minimum economic volume per concept, Brent for zero development NPV and the tie-back versus stand-alone crossover volume.
+- Infrastructure screen: gas export route, CO2 removal fraction, wellhead net-back, host ullage with gas-handling limit, and the UNKNOWN list.
 - Near-field synergy value: stand-alone minus tie-back value difference.
 - Sensitivity on chance of discovery, price, volume and offered share.
 - Assumptions, data gaps, limitations and human-review requirements.
@@ -48,24 +52,39 @@ and economics studies for any quantitative decision.
 # Workflow
 
 1. Restate the block, concepts, bid terms and economic basis.
-2. Use `anp-open-data` to collect block, host and analogue facts with source and date.
+2. Probe the data sources and record what each returned. The public route is ANP open data via
+   `anp-open-data` (block, host, analogue facts with source and date). Centuries forecasts and
+   GeoX are enterprise-only; if a probe returns nothing, an empty result is not an absent field.
+   Report it once, name the fallback and do not loop.
 3. Use the `fluid-characterization-agent` and `brazil-presalt-analogue-basis` to set a
    declared low/base/high fluid, including CO2 range, and flag EOS and materials limits.
 4. Use the `reservoir-simulator-agent` and `reservoir-model-builder` to produce volume
    cases and a development profile per concept from analogues.
 5. Use the `resource-classification-agent` to label the resource maturity.
-6. Use the `tie-in-screening-agent` for the near-field concept constraints.
+6. Infrastructure, market and host screening with `brazil-offshore-infrastructure-market`:
+   gas export route and plant, CO2 removal for the declared gas, wellhead net-back, gas export
+   as a share of oil revenue, and `host_capacity_check` for a tie-back (gas handling or
+   compression can bind before oil nameplate). Quote every UNKNOWN as UNKNOWN; no numeric
+   offshore tariff is public. Then use the `tie-in-screening-agent` for near-field constraints.
 7. Use the `concept-selection-agent` to give each concept a consistent cost picture.
-8. Use `psc-bid-economics-screening` for EMV, break-even share and headroom per concept,
-   and `asset-value-npv-screening` as an independent DCF cross-check.
-9. State the sensitivities and the conditions under which the bid stops creating value.
-10. Document assumptions, limitations and human-review requirements.
+8. Apply the profit-oil table for a Brazilian round: `load_annex_xx()` with the rate per
+   producer, cost-oil cap converted with `net_cost_oil_cap`. Run `psc-bid-economics-screening`
+   (Swanson-weighted EMV, forced development and with the development option) and
+   `asset-value-npv-screening` as an independent DCF cross-check.
+9. Report the outputs: effective Union share, break-even chance of discovery, P50 volume for
+   EMV = 0, minimum economic volume per concept, Brent for zero development NPV and the
+   tie-back versus stand-alone crossover volume.
+10. For several blocks, roll up the portfolio with a different Monte Carlo seed per block;
+    identical seeds make the blocks comonotonic.
+11. State the sensitivities and the conditions under which the bid stops creating value.
+12. Document assumptions, limitations and human-review requirements.
 
 # Required Skills
 
 - `psc-bid-economics-screening` mapped to `neqsim-psc-bid-economics-screening`.
 - `anp-open-data` mapped to `neqsim-anp-open-data`.
 - `brazil-presalt-analogue-basis` mapped to `neqsim-brazil-presalt-analogue-basis`.
+- `brazil-offshore-infrastructure-market` mapped to `neqsim-brazil-offshore-infrastructure-market`.
 - `asset-value-npv-screening` mapped to `neqsim-asset-value-npv-screening`.
 
 # Example Usage
@@ -95,6 +114,11 @@ assumptions and human-review requirements.
 - [ ] Every analogue and open-data number has a source and date.
 - [ ] Low/base/high cases are carried through the whole chain.
 - [ ] Break-even share and headroom are reported for each concept.
+- [ ] EMV is shown as forced development and with the development option; bonus and exploration are paid in every outcome.
+- [ ] For a Brazilian round the Annex XX table and rate per producer are applied; a flat offered share is not used.
+- [ ] Every UNKNOWN from the infrastructure skill is listed; no tariff was invented.
+- [ ] Host ullage uses a gas-handling limit when one exists, or says only nameplate was used.
+- [ ] Portfolio runs use a different seed per block.
 - [ ] The Java `PscBidEconomics` result agrees with the skill result where both are run.
 - [ ] Assumptions, data gaps, limitations and human review are documented.
 

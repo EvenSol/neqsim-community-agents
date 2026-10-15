@@ -4,13 +4,14 @@ Public screening coordinator that judges a bid on an exploration block under a p
 
 ## Status
 
-Draft (version 0.1.0). Screening only.
+Draft (version 0.2.0). Screening only.
 
 ## Required skills
 
 - `neqsim-psc-bid-economics-screening`
 - `neqsim-anp-open-data`
 - `neqsim-brazil-presalt-analogue-basis`
+- `neqsim-brazil-offshore-infrastructure-market`
 - `neqsim-asset-value-npv-screening`
 
 ## Human review
