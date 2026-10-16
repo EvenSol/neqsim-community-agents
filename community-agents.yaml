@@ -697,6 +697,20 @@ agents:
       - artificial-lift
       - production-optimization
 
+  - name: well-trajectory-anticollision-agent
+    version: "0.1.0"
+    description: "Plans a screening-level 3D well path from a slot or sidetrack tie-in and checks it against offset wellbores with the ISCWSA separation-factor rule, reporting the governing offset, parent exit, slot status and target pull-back, using public educational methods."
+    repo: "equinor/neqsim-community-agents"
+    path: "agents/well-trajectory-anticollision-agent/AGENT.md"
+    required_skills:
+      - neqsim-well-trajectory-anticollision
+      - neqsim-erd-reach-screening
+    supported_domains:
+      - well-planning
+      - directional-drilling
+      - anti-collision
+      - field-development
+
   - name: production-optimization-agent
     version: "0.1.0"
     description: "Performs early-stage production-optimization screening that searches operating setpoints (separation pressures, compressor discharge, routing) for higher throughput or lower compression power while respecting public capacity and operating-window guidelines."
