@@ -50,7 +50,7 @@ Typical inputs include:
 
 Typical outputs include:
 
-- Slot occupancy verdict (FREE, OCCUPIED or RECOVERABLE)
+- Slot occupancy verdict (FREE, OCCUPIED, RESERVED by a planned bore, or RECOVERABLE)
 - Planned survey listing (MD, inclination, azimuth, E, N, depth, DLS, 1σ uncertainty)
 - Plan summary (TD, hold angle, max DLS, horizontal displacement, step-out ratio, target miss)
 - Separation-factor table per offset with STOP, CAUTION or OK status
