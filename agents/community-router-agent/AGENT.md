@@ -71,6 +71,7 @@ already obvious.
 | Reservoir model, depletion, forecast, resources | `reservoir-simulator-agent`, `reservoir-forecasting-agent`, `resource-classification-agent`, `ncs-production-analysis-agent` |
 | Whole-NCS system: how fields, pipelines, plants and terminals connect; bottlenecks, outages, tie-in capacity, shelf-wide production/value optimisation | `ncs-value-chain-agent` |
 | Well inflow, productivity, injectivity, artificial lift | `near-well-injectivity-agent`, `artificial-lift-agent`, `gas-lift-allocation-agent` |
+| Well path, directional plan, anti-collision, separation factor, slot occupancy, sidetrack from a template | `well-trajectory-anticollision-agent` |
 | Reservoir-to-facility rates and arrival conditions | `reservoir-to-facility-screening-agent` |
 | Fluid characterization, PVT, phase behaviour, E300 files | `pvt-agent`, `fluid-characterization-agent`, `e300-fluid-agent` |
 | Hydrate, wax, scale, cooldown, flow assurance | `flow-assurance-engineer-agent`, `flow-assurance-study-agent`, `hydrate-screening-agent`, `subsea-cooldown-agent`, `produced-water-scale-agent` |

@@ -204,7 +204,8 @@
       "neqsim-vacuum-collapse-screening",
       "neqsim-water-dewpoint-dehydration-screening",
       "neqsim-wax-margin-check",
-      "neqsim-weather-data"
+      "neqsim-weather-data",
+      "neqsim-well-trajectory-anticollision"
     ]
   },
   "skills": [
@@ -391,6 +392,7 @@
     "neqsim-wax-calculations",
     "neqsim-wax-margin-check",
     "neqsim-weather-data",
+    "neqsim-well-trajectory-anticollision",
     "paperlab-book-release-orchestration",
     "paperlab-book-to-paper-extraction",
     "paperlab-journal-positioning",
