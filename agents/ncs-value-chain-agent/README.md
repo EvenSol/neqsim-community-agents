@@ -13,7 +13,7 @@ handed to validated NeqSim classes (`TiebackAnalyzer`, `LoopedPipeNetwork`,
 - Examples: [examples/ncs-value-chain-checklist.md](examples/ncs-value-chain-checklist.md)
 - Prompts: [prompts/example-prompts.md](prompts/example-prompts.md)
 
-Enterprise extension (governed forecasts, tariffs, meters):
-`enterprise-ncs-value-chain-optimization-agent` in `neqsim-enterprise-agents`.
+Enterprise extension (governed forecasts, tariffs, meters): a company can add its own
+private agent that binds company forecasts, tariffs and meter data to the public scenario schema.
 
 Screening only; qualified human review is required.

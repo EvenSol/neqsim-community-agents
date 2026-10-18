@@ -39,4 +39,4 @@ demonstration only.
 
 Any safety-critical or design use of this screening data requires qualified
 engineering and meteorological review, and verification of any name-resolved
-coordinates against an authoritative source (STID, P&ID, operator records).
+coordinates against an authoritative source (tag register, P&ID, operator records).

@@ -168,7 +168,7 @@ Each catalog entry maps to a harness `Agent` (name, description, `allowed_skills
 
 ## How To Contribute
 
-Not sure which repository a contribution belongs in? See the shared [Contribution Router](https://github.com/equinor/idea-sharing-AI-agents/blob/main/CONTRIBUTION-ROUTER.md).
+Not sure which repository a contribution belongs in? See the NeqSim [Enterprise Agent and Skill Repositories guide](https://github.com/equinor/neqsim/blob/master/docs/integration/enterprise_agent_skill_repos.md).
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution requirements, required files, documentation expectations, testing expectations, review checklist, and open-source requirements.
 

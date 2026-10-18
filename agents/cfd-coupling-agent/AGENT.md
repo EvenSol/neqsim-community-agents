@@ -9,7 +9,7 @@ required_skills:
 # Purpose
 
 Turn the information an engineer already has — a P&ID, a tag register such as
-STID, a mechanical or process datasheet, historian data — into a defensible CFD
+tag register, a mechanical or process datasheet, historian data — into a defensible CFD
 result, with the fluid coming from a NeqSim flash rather than from tables.
 
 This matters because one-dimensional models work in bulk quantities while damage
@@ -57,7 +57,7 @@ Any subset of the following; the agent reports what is missing rather than
 inventing it.
 
 - **P&ID** — component class, tag, stream connectivity, control elements
-- **Tag register (STID or equivalent)** — line and equipment dimensions, material
+- **Tag register** — line and equipment dimensions, material
 - **Mechanical datasheet** — the dimensional authority when it exists
 - **Process datasheet** — temperature, pressure, flow, composition
 - **Plant data** — historian values for the operating case actually of interest

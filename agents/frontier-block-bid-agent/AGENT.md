@@ -53,8 +53,8 @@ and economics studies for any quantitative decision.
 
 1. Restate the block, concepts, bid terms and economic basis.
 2. Probe the data sources and record what each returned. The public route is ANP open data via
-   `anp-open-data` (block, host, analogue facts with source and date). Centuries forecasts and
-   GeoX are enterprise-only; if a probe returns nothing, an empty result is not an absent field.
+   `anp-open-data` (block, host, analogue facts with source and date). Company forecast and
+   prospect databases are enterprise-only; if a probe returns nothing, an empty result is not an absent field.
    Report it once, name the fallback and do not loop.
 3. Use the `fluid-characterization-agent` and `brazil-presalt-analogue-basis` to set a
    declared low/base/high fluid, including CO2 range, and flag EOS and materials limits.

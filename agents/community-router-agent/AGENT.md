@@ -118,7 +118,7 @@ an ordered pipeline: `tie-in-screening-agent` (concept + fluid adequacy) ->
 # Limitations
 
 - Performs no engineering calculation, retrieves no data, and produces no numeric result.
-- Routes only within the **community** catalog. Enterprise (Equinor-internal) data
+- Routes only within the **community** catalog. Enterprise (company-private) data
   agents and the core NeqSim task-solving agents are out of scope; name them as a
   prerequisite instead of routing to them.
 - Routing is a suggestion. It does not replace engineering judgement about which

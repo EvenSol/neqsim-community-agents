@@ -332,7 +332,7 @@ compressor-antisurge-agent             anti-surge recycle control and speed runb
 |------------|------|
 | [equinor/neqsim](https://github.com/equinor/neqsim) | The simulation engine plus the core agents that drive it directly (`@process.model`, `@thermo.fluid`, `@solve.task`, …). See `docs/integration/agents_and_workflows_overview.md` there. |
 | **neqsim-community-agents** (this repository) | Public screening agents built on public, educational methods. |
-| [equinor/neqsim-enterprise-agents](https://github.com/equinor/neqsim-enterprise-agents) | Private, governed agents that add company data sources and company policy on top of these community methods. |
+| Your private enterprise agents repository | Private, governed agents that add your company data sources and policy on top of these community methods (see the Enterprise Agent and Skill Repositories guide in `equinor/neqsim`). |
 
 Enterprise agents deliberately reuse community methods rather than
 re-implementing them: an enterprise hydrate-margin agent applies a company
