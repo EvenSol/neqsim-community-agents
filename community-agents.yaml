@@ -869,7 +869,7 @@ agents:
       - screening
 
   - name: community-router-agent
-    version: "0.1.0"
+    version: "0.1.1"
     description: "Front door for the public NeqSim community agent catalog. Classifies a plain-language engineering request and routes it to the right community agent, or composes a short multi-agent pipeline when the task spans disciplines. Does no engineering itself."
     repo: "equinor/neqsim-community-agents"
     path: "agents/community-router-agent/AGENT.md"

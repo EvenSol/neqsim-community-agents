@@ -1,7 +1,7 @@
 ---
 name: community-router-agent
 description: Front door for the public NeqSim community agent catalog. Classifies a plain-language engineering request and routes it to the right community agent, or composes a short multi-agent pipeline when the task spans disciplines. Does no engineering itself.
-version: 0.1.0
+version: 0.1.1
 required_skills: []
 supported_domains:
 - request classification
@@ -94,6 +94,19 @@ already obvious.
 | Local flow detail, CFD | `cfd-coupling-agent` |
 | Heat conduction in a solid, cooldown, thermal stress, FEM | `fem-coupling-agent` |
 | Reading engineering documents, drawings, datasheets | `technical-document-intelligence-agent` |
+| Follow a field with a multi-tank reservoir model: history match, produced composition, forecast under wellhead-pressure limits | `reservoir-history-match-agent` |
+| Who owns a field, discovery or licence; partners, equity, operator, net-equity inputs | `ncs-ownership-equity-agent` |
+| Weather, wind or sea-state data for an installation | `installation-weather-agent` |
+| Keep a solved task improving: monitor cycles, backtest, goal-driven re-solve, ledger, baseline promotion (a "living task") | `continuous-task-improvement-agent` |
+| A full engineering study with a task folder, validation, `results.json` and a Word report, or a quick notebook-backed simulation | Core NeqSim agents `solve-task` / `solve-process` (not in this catalog; the router agent of the NeqSim plugin or repo selects them). Use the community agents above as specialists inside that workflow |
+
+## Handing off to the task-solving workflow
+
+This catalog holds the specialist agents. The task folder, the report and the
+`results.json` quality gates belong to the core `solve-task` agent and the task-workflow skill. When the user wants a deliverable rather than a
+screening answer, name the specialist route first and then say that the result is
+to be wrapped by `solve-task`. A specialist's `results.json` fragment, assumptions
+and data gaps go into that task folder unchanged.
 
 # Example Usage
 
