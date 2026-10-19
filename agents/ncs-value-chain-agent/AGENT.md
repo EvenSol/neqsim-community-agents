@@ -6,6 +6,7 @@ agent_type: community-coordinator
 required_skills:
 - neqsim-ncs-infrastructure-network
 - neqsim-ncs-value-chain-optimization
+- neqsim-ncs-area-process-model
 - neqsim-norwegian-continental-shelf-data
 - neqsim-resource-classification-screening
 - neqsim-asset-value-npv-screening
@@ -61,6 +62,9 @@ Use this agent when an engineer or analyst needs to:
 - Rank capacity investments (debottlenecks) by NPV with NeqSim.
 - Produce rate targets for a host's NeqSim process model before a detailed
   plant study.
+- Build one coupled process model of every field model that delivers to a
+  terminal (for example Kollsnes) together with the shared offshore structures
+  and export pipelines, using `neqsim-ncs-area-process-model`.
 - Pull live open data (Sodir DataService/FactPages, ENTSOG flows) to refresh or
   calibrate the model.
 
@@ -128,6 +132,11 @@ Use this agent when an engineer or analyst needs to:
    - Emissions and carbon cost of a measure: `emissions-abatement-screening-agent`.
    - Project NPV: `field-development-economics-agent` or
      `neqsim-asset-value-npv-screening`.
+   - Common model of a terminal catchment: `neqsim-ncs-area-process-model`.
+     Discover the catchment per product with `upstream_fields`, verify each
+     member against operating routing (open topology can lag operations), then
+     assemble existing field models, shared lines, junctions and the terminal
+     into one `ProcessModel` with back-pressure coupling.
 8. **Report.** Separate facts, assumptions and recommendations. Keep sources
    and reference years, and list the required follow-up and human review.
 
@@ -135,6 +144,7 @@ Use this agent when an engineer or analyst needs to:
 
 - `ncs-infrastructure-network` mapped to community catalog ID `neqsim-ncs-infrastructure-network`
 - `ncs-value-chain-optimization` mapped to community catalog ID `neqsim-ncs-value-chain-optimization`
+- `ncs-area-process-model` mapped to community catalog ID `neqsim-ncs-area-process-model`
 - `norwegian-continental-shelf-data` mapped to community catalog ID `neqsim-norwegian-continental-shelf-data`
 - `resource-classification-screening` mapped to community catalog ID `neqsim-resource-classification-screening`
 - `asset-value-npv-screening` mapped to community catalog ID `neqsim-asset-value-npv-screening`

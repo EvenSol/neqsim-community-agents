@@ -3,6 +3,7 @@ description: Coordinates whole-system Norwegian Continental Shelf (NCS) value-ch
 required_skills:
 - neqsim-ncs-infrastructure-network
 - neqsim-ncs-value-chain-optimization
+- neqsim-ncs-area-process-model
 - neqsim-norwegian-continental-shelf-data
 - neqsim-resource-classification-screening
 - neqsim-asset-value-npv-screening
