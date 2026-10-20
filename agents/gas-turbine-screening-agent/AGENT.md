@@ -1,6 +1,8 @@
 ---
 name: gas-turbine-screening-agent
 description: Screens gas-turbine driver site-rating, heat rate, and exhaust conditions using public, educational methods.
+coordinated_agents:
+- installation-weather-agent
 version: 0.1.0
 required_skills:
 - neqsim-gas-turbine-performance-screening

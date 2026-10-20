@@ -9,6 +9,7 @@ required_skills:
 - neqsim-pressure-drop-screening
 context_skills:
 - neqsim-ageing-life-extension-screening
+- neqsim-capacity-increase-screening
 coordinated_agents:
 - production-optimization-agent
 ---

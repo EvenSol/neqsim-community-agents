@@ -1,6 +1,9 @@
 ---
 name: near-well-injectivity-agent
 description: "Derives productivity and injectivity indices from the rock with OPM Flow, pyscal and resdata, converts NeqSim fluids to black-oil PVT tables, generates VFPPROD lift curves from NeqSim flowline/tubing models, and hands a defensible inflow relationship to NeqSim well and process models. Use when an inflow number is about to be assumed, injectors vs voidage, productivity decay below bubble point, a VFP table is needed, or a reservoir model must be built and run."
+coordinated_agents:
+- reservoir-simulator-agent
+- flow-assurance-engineer-agent
 version: 0.3.0
 agent_type: community-agent
 required_skills:

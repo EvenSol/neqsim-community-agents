@@ -11,9 +11,9 @@ required_skills:
 - neqsim-fluid-quality-check
 context_skills:
 - neqsim-pseudocomponent-split-characterization
+- neqsim-near-well-and-injectivity
 - neqsim-production-network-routing
 - neqsim-asset-value-npv-screening
-- neqsim-near-well-and-injectivity
 - neqsim-reservoir-3d-visualisation
 coordinated_agents:
 - reservoir-forecasting-agent

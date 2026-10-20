@@ -1,6 +1,12 @@
 ---
 name: frontier-block-bid-agent
 description: Coordinates public, screening-level evaluation of a bid on an exploration block under a production sharing contract - resource and fluid basis, infrastructure and host screening, near-field tie-back versus stand-alone, the Brazilian Annex XX profit-oil table, and PSC bid economics with break-even share, chance of discovery and volume - before a validated NeqSim study.
+coordinated_agents:
+- concept-selection-agent
+- fluid-characterization-agent
+- reservoir-simulator-agent
+- tie-in-screening-agent
+- resource-classification-agent
 version: 0.2.0
 required_skills:
 - neqsim-psc-bid-economics-screening

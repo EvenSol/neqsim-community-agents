@@ -1,6 +1,9 @@
 ---
 name: ncs-production-analysis-agent
 description: Coordinates public Norwegian Continental Shelf (NCS) production analysis by combining a source-attributed NCS reference-facts database with reservoir-depletion, asset-value, and energy-emissions screening to frame production, resource-accounting, and field-inventory studies before a validated NeqSim reservoir/economics workflow.
+context_skills:
+- neqsim-ncs-infrastructure-network
+- neqsim-ncs-value-chain-optimization
 version: 0.1.0
 agent_type: community-coordinator
 required_skills:

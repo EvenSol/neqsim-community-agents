@@ -1,6 +1,8 @@
 ---
 name: subsea-layout-screening-agent
 description: Coordinates early-stage subsea layout screening that turns a supplied subsea map into a well and tie-back inventory with step-out distances, route profiles, and seabed slope flags.
+coordinated_agents:
+- tie-in-screening-agent
 version: 0.1.0
 required_skills:
 - neqsim-field-layout-import

@@ -1,6 +1,13 @@
 ---
 name: fem-coupling-agent
 description: "Runs finite-element models of the solid - layered heat conduction, transient cooldown, porous diffusion and thermal stress - from a traceable design basis (P&ID, tag register, datasheets, insulation spec, inspection report) and a NeqSim flash, with closed-form checks, Gmsh plus scikit-fem/FEniCSx cases in 2-D or 3-D, PyVista renders and mesh/energy/boundary gates, returning U-value, hot-spot factor, no-touch time and wall stress. Also qualifies existing FEM reports."
+coordinated_agents:
+- cfd-coupling-agent
+- subsea-cooldown-agent
+- flow-assurance-engineer-agent
+- piping-mechanical-agent
+context_skills:
+- neqsim-cfd-coupling
 version: 0.2.0
 required_skills:
 - neqsim-fem-coupling

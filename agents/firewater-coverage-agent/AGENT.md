@@ -1,6 +1,14 @@
 ---
 name: firewater-coverage-agent
 description: Screens fire-water and deluge coverage for a process area — required application rate and demand, blanket area coverage against dedicated object protection, deluge nozzle-net sizing, fire-monitor feasibility with wind drift, and the active-versus-passive substitution rules.
+coordinated_agents:
+- process-safety-agent
+- piping-integrity-agent
+- installation-weather-agent
+context_skills:
+- neqsim-depressurization-screening
+- neqsim-relief-load-screening
+- neqsim-flare-radiation-screening
 version: 0.1.0
 required_skills:
 - neqsim-firewater-deluge-design

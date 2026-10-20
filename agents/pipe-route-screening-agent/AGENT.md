@@ -1,6 +1,9 @@
 ---
 name: pipe-route-screening-agent
 description: Coordinates early-stage pipe-route screening that builds a route elevation profile and checks arrival pressure drop, line velocity, and hydrate margin against public guidelines.
+coordinated_agents:
+- flow-assurance-engineer-agent
+- subsea-layout-screening-agent
 version: 0.1.0
 required_skills:
 - neqsim-pipe-route-profile

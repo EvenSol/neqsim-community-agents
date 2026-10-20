@@ -1,6 +1,10 @@
 ---
 name: field-development-economics-agent
 description: Coordinates an end-to-end reservoir-to-market field-development screening that chains reservoir fluid and depletion screening, subsea hydrate flow-assurance margins, topside separation duty, gas-export line screening, and an asset-economics roll-up (CAPEX/OPEX, energy and emissions, and a discounted NPV) into one concept-level value-chain view.
+coordinated_agents:
+- asset-economics-agent
+- reservoir-to-facility-screening-agent
+- ncs-ownership-equity-agent
 version: 0.1.0
 required_skills:
 - neqsim-fluid-quality-check

@@ -1,6 +1,9 @@
 ---
 name: cfd-coupling-agent
 description: "Runs single-phase and multiphase CFD from governed engineering inputs, qualifies existing CFD, and assesses aeroacoustic readiness. Tonal-noise cases fail closed unless source topology, internal geometry, synchronized spectra, event conditions, acoustic terminations, and required structural boundaries exist; steady RANS is never used as tonal-source diagnosis."
+coordinated_agents:
+- flow-assurance-engineer-agent
+- fem-coupling-agent
 version: 0.4.0
 required_skills:
 - neqsim-cfd-coupling

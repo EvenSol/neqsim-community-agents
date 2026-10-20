@@ -1,6 +1,18 @@
 ---
 name: installation-weather-agent
 description: Reads live, forecast and historical weather, wind and sea-state data for an installation from open APIs (worldwide via Open-Meteo, with a Norwegian Continental Shelf cross-check via MET Norway and the Sodir facility register) and hands it to other screening agents.
+coordinated_agents:
+- gas-turbine-screening-agent
+- firewater-coverage-agent
+- subsea-cooldown-agent
+context_skills:
+- neqsim-gas-turbine-performance-screening
+- neqsim-firewater-deluge-design
+- neqsim-gas-dispersion-distance-screening
+- neqsim-surf-cooldown-screening
+- neqsim-root-cause-analysis
+- neqsim-autonomous-investigation
+- neqsim-ncs-infrastructure-network
 version: 0.1.0
 required_skills:
 - neqsim-weather-data

@@ -1,6 +1,9 @@
 ---
 name: process-safety-agent
 description: Provides early-stage process safety screening for fire-case relief loads and emergency depressurization with public, educational methods.
+context_skills:
+- neqsim-gas-dispersion-distance-screening
+- neqsim-jet-fire-radiation-screening
 version: 0.1.0
 required_skills:
 - neqsim-relief-load-screening
