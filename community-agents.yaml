@@ -76,6 +76,21 @@ agents:
       - hydrates
       - screening
 
+  - name: export-tie-in-concept-agent
+    version: "0.1.0"
+    description: "Screens a new export or tie-in line between two facilities end to end: ranked landing points on neighbouring hosts, seabed profile, pressure drop, thermal decay, wall thickness and size, and conceptual P&ID sketches of both connection ends with open options, before a validated NeqSim pipeline study."
+    repo: "equinor/neqsim-community-agents"
+    path: "agents/export-tie-in-concept-agent/AGENT.md"
+    required_skills:
+      - neqsim-tie-in-pipeline-concept
+      - neqsim-tie-in-pid-sketch
+      - neqsim-ncs-infrastructure-network
+    supported_domains:
+      - field-development
+      - tie-in-screening
+      - pipeline-concept
+      - export-route-screening
+
   - name: tie-in-screening-agent
     version: "0.1.0"
     description: "Provides early-stage screening of tie-in opportunities with fluid, flow assurance, and process checks."

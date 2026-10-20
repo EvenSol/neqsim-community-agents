@@ -58,6 +58,7 @@ coordinated_agents:
 - technical-document-intelligence-agent
 - teg-dehydration-agent
 - tie-in-screening-agent
+- export-tie-in-concept-agent
 - utilities-screening-agent
 - well-trajectory-anticollision-agent
 version: 0.1.1
@@ -124,6 +125,7 @@ already obvious.
 | Request is about | Route to |
 |---|---|
 | Which concept, tie-in, or development option to pick | `concept-selection-agent`, `tie-in-screening-agent` |
+| Where a new export or tie-in line can connect, what size it needs, and P&ID sketches of both connection ends | `export-tie-in-concept-agent` |
 | Bid on an exploration block, PSC bid round, break-even profit-oil share | `frontier-block-bid-agent` |
 | Field economics, NPV, CAPEX/OPEX, emissions cost | `asset-economics-agent`, `field-development-economics-agent` |
 | Emission reduction / abatement on the NCS | `emissions-abatement-screening-agent`, `energy-emissions-agent` |
