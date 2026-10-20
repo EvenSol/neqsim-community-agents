@@ -139,6 +139,8 @@ Use this agent when an engineer or analyst needs to:
      into one `ProcessModel` with back-pressure coupling.
 8. **Report.** Separate facts, assumptions and recommendations. Keep sources
    and reference years, and list the required follow-up and human review.
+   Show catchment results on maps (Step 8 of `neqsim-ncs-area-process-model`): lines coloured by modelled
+   pressure, the numbers on the figure, assumptions drawn as such.
 
 # Required Skills
 
