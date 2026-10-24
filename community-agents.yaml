@@ -361,8 +361,8 @@ agents:
       - flow-assurance
 
   - name: reservoir-to-facility-screening-agent
-    version: "0.2.0"
-    description: "Coordinates early-stage reservoir-to-facility production screening that chains reservoir depletion versus time, well inflow, manifold routing, and flowline/riser pressure drop into a platform arrival-pressure roll-up with time development."
+    version: "0.2.1"
+    description: "Screens reservoir depletion, well inflow, SURF manifold routing and flowline/riser arrival pressure over time; routes natural-language full-chain Python or Java NeqSim requests through reservoir, wells, multiphase hydraulics, facilities, process utilities and downstream processing using existing core/community specialists."
     repo: "equinor/neqsim-community-agents"
     path: "agents/reservoir-to-facility-screening-agent/AGENT.md"
     required_skills:
@@ -378,6 +378,13 @@ agents:
       - production-technology
       - subsea-layout
       - flow-assurance
+    context_skills:
+      - neqsim-production-system-modeling
+      - neqsim-integrated-production-and-lifecycle
+      - neqsim-process-modeling
+      - neqsim-utility-design
+      - neqsim-lng-liquefaction
+      - neqsim-acid-gas-treating
 
   - name: ncs-production-analysis-agent
     version: "0.1.0"

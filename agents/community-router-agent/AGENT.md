@@ -121,6 +121,18 @@ already obvious.
 6. For a multi-discipline task, compose an ordered pipeline and state what each step hands to the next.
 7. State the human-review requirement. Never present a routed screening result as a design basis.
 
+# Full-chain requests
+
+For natural-language reservoir-to-products model building in Python or Java,
+use `reservoir-to-facility-screening-agent` to establish scope and its full-chain
+handoff, then the installed core `network-energy-systems` composition workflow.
+Include production/injection wells, SURF, selected multiphase flowlines/risers,
+facilities, process utilities and downstream processing in the shared contract.
+Discover reservoir, near-well, SURF, process and utility specialists from the
+installed catalogs. Preserve each stage's rigor and the requested language;
+screening gradients/tanks do not fulfill a requested rigorous model. Keep
+company-specific connectors and overlays in the private catalogs.
+
 # Routing Table
 
 | Request is about | Route to |

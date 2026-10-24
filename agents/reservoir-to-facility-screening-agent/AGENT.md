@@ -1,10 +1,10 @@
 ---
 name: reservoir-to-facility-screening-agent
-description: Coordinates early-stage reservoir-to-facility production screening that chains reservoir depletion versus time, well inflow, manifold routing, and flowline/riser pressure drop into a platform arrival-pressure roll-up with time development.
+description: Screens reservoir depletion, well inflow, SURF manifold routing and flowline/riser arrival pressure over time; routes natural-language full-chain Python or Java NeqSim requests through reservoir, wells, multiphase hydraulics, facilities, process utilities and downstream processing using existing core/community specialists.
 coordinated_agents:
 - subsea-layout-screening-agent
 - tie-in-screening-agent
-version: 0.2.0
+version: 0.2.1
 required_skills:
 - neqsim-reservoir-depletion-screening
 - neqsim-production-network-routing
@@ -12,6 +12,13 @@ required_skills:
 - neqsim-step-out-screening
 - neqsim-reservoir-facility-value-chain
 - neqsim-ageing-life-extension-screening
+context_skills:
+- neqsim-production-system-modeling
+- neqsim-integrated-production-and-lifecycle
+- neqsim-process-modeling
+- neqsim-utility-design
+- neqsim-lng-liquefaction
+- neqsim-acid-gas-treating
 ---
 
 # Purpose
@@ -69,6 +76,33 @@ Typical outputs include:
 - A time-development summary tying reservoir decline to arrival pressure
 - Recommended validated NeqSim and routing workflows
 - Assumptions, limitations, and a human review checklist
+
+# Full-chain model construction and language choice
+
+For a request to **build a NeqSim model** from reservoir through wells, SURF,
+multiphase flowlines/risers, facilities, utilities and downstream processing,
+load `neqsim-production-system-modeling` from the core plugin/skill catalog.
+Use the core `network-energy-systems` workflow for composition when available;
+discover installed agents/skills before dispatching. Keep this agent's existing
+screening methods for an explicitly selected screening case.
+
+Preserve the user's Python or Java choice. Both implementations use the same
+NeqSim Java engine, fluid definitions, topology, standard conditions, boundaries
+and constraints. Python need not have a convenience wrapper for each class:
+use inspected Java class access through the installed bridge; in a source
+workspace follow the core `neqsim_init` setup. Reuse the selected interpreter.
+
+Hand off reservoir/PVT/VFP and inflow to installed reservoir/near-well specialists;
+layout to the SURF specialists; selected steady or transient hydraulic models to
+flow assurance; facility flowsheets to `neqsim-process-modeling`; utilities to
+`neqsim-utility-design`; downstream treatment/LNG to `neqsim-acid-gas-treating` or
+`neqsim-lng-liquefaction`. Use `neqsim-integrated-production-and-lifecycle` for its
+explicitly bounded integrated APIs. Record missing specialists/runtimes and
+critical inputs; never silently replace requested models with linear depletion,
+assumed pressure gradients or a fixed facility capacity. Preserve host-backpressure,
+well deliverability, utility capacity and downstream-specification coupling.
+Private enterprise connectors/overlays may supply governed inputs when installed
+and authorized; a public synthetic case must remain independent of them.
 
 # Workflow
 
@@ -131,17 +165,20 @@ Use public synthetic data to screen a gas field from reservoir to facility. Buil
 
 # Related NeqSim Functionality
 
-The screening produced by this agent maps to validated, rigorous NeqSim Java
-functionality that a qualified engineer should use for design-grade work:
+The screening produced by this agent can hand off to the following implemented
+NeqSim Java APIs. Inspect current source, tests and case-specific qualification
+before selecting a model; source availability does not establish design validity:
 
-- `neqsim.process.processTools.simplereservoir` (`SimpleReservoir`) with gas/oil/water producers and injectors and a `runTransient(deltat)` time loop for reservoir-versus-time behaviour.
+- `neqsim.process.equipment.reservoir.SimpleReservoir` with gas/oil/water producers and injectors and a `runTransient(deltat)` time loop for reservoir-versus-time behaviour.
 - `neqsim.process.equipment.pipeline.PipeBeggsAndBrills` — multiphase pressure and temperature along a flowline/riser with gas, oil, and water.
 - `neqsim.process.equipment.util.Adjuster` — tunes a single well/train rate to hold a target endpoint (pipeline outlet / separator inlet) pressure; the multiwell generalization is the network solver below.
-- `neqsim.process.equipment.reservoir.WellFlowlineNetwork` with `setTargetEndpointPressure(pressure, unit)` — iterates the manifold/endpoint pressure to hold a target facility inlet/separator pressure while solving every well's rate from its backpressure (the validated counterpart to the pressure-regulated screening).
+- `neqsim.process.equipment.network.WellFlowlineNetwork` with `setTargetEndpointPressure(pressure, unit)` — iterates the manifold/endpoint pressure to hold a target facility inlet/separator pressure while solving every well's rate from its backpressure (the validated counterpart to the pressure-regulated screening).
 - The NeqSim MCP `runReservoir`, `runPipeline`, `runProcess`, and `runFlowAssurance` tools for orchestrated reservoir-to-facility simulation.
 
-In Python these classes are reachable through the `neqsim` package (for example
-`from neqsim.process.processTools import simplereservoir`). For governed, live,
+In Python access the same Java classes through the installed NeqSim bridge;
+verify convenience-wrapper availability instead of assuming wrapper coverage.
+Executable topology evidence is in the core test
+`src/test/java/neqsim/process/equipment/network/WellFlowlineNetworkTest.java`. For governed, live,
 reservoir-to-facility routing from controlled engineering sources, use the
 corresponding enterprise catalog workflow. This agent is a companion to the
 `subsea-layout-screening-agent` and the `tie-in-screening-agent`.

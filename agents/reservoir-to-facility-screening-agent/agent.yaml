@@ -1,6 +1,8 @@
 name: reservoir-to-facility-screening-agent
 agent_type: community-coordinator
-description: Coordinates early-stage reservoir-to-facility production screening that chains reservoir depletion versus time, well inflow, manifold routing, and flowline/riser pressure drop into a platform arrival-pressure roll-up with time development.
+description: Screens reservoir depletion, well inflow, SURF manifold routing and flowline/riser arrival pressure
+  over time; routes natural-language full-chain Python or Java NeqSim requests through reservoir, wells, multiphase
+  hydraulics, facilities, process utilities and downstream processing using existing core/community specialists.
 required_skills:
 - neqsim-reservoir-depletion-screening
 - neqsim-production-network-routing
@@ -38,4 +40,11 @@ outputs:
 - required_follow_up_studies
 - validation_checklist
 human_review_required: true
-version: 0.2.0
+version: 0.2.1
+context_skills:
+- neqsim-production-system-modeling
+- neqsim-integrated-production-and-lifecycle
+- neqsim-process-modeling
+- neqsim-utility-design
+- neqsim-lng-liquefaction
+- neqsim-acid-gas-treating
