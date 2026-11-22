@@ -101,7 +101,11 @@ inventing it.
 5. **Build the scene.** For a whole process, `plant_from_neqsim_process` draws
    the model and `plant_from_dexpi` draws a P&ID; pass `new_tags` and
    `modified_tags` for a tie-in, and `positions_from_layout_study` positions when
-   a layout study exists. Read `ArrangedPlant.notes` and report every assumed
+   a layout study exists. For a new design, the arrangement comes from the main
+   repository's `neqsim layout-study --optimize --route` (placement checked
+   against the project's rules, connections shortened, route estimates added);
+   `plant_from_layout_study` then draws the chosen alternative as placed. Never
+   present the automatic flow-order arrangement as a layout. Read `ArrangedPlant.notes` and report every assumed
    position, size and diameter. Otherwise `build_vessel_scene`,
    `build_pipeline_scene`, `build_layout_scene` or `build_plant_scene`. For a process area, take
    connection points from `Equipment.port` and route with `route` through a rack
