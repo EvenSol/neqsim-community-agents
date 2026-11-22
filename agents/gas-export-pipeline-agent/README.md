@@ -11,12 +11,18 @@ It helps engineers check whether an export-line diameter, pressure-drop estimate
 - Estimate export-compression power for the required pressure rise
 - Identify missing multiphase, terrain, thermal, and compressor data
 - Explain limitations and recommended follow-up analysis
+- For NCS routes, frame export availability from a user-saved Gassco UMM export
+  (worst concurrent unavailability with Gassco's uncertainty band)
 
 ## Required Skills
 
 - `neqsim-line-velocity-check`
 - `neqsim-pressure-drop-screening`
 - `neqsim-compressor-power-screening`
+
+## Context Skills
+
+- `neqsim-norwegian-continental-shelf-data`, for Gassco UMM availability on NCS routes
 
 ## Directory Contents
 

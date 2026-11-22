@@ -4,7 +4,7 @@
 # consumed by the main NeqSim ecosystem.
 
 catalog_version: "1.0"
-last_updated: "2026-07-11"
+last_updated: "2026-11-22"
 trust: "community"
 
 agents:
@@ -77,7 +77,7 @@ agents:
       - screening
 
   - name: tie-in-screening-agent
-    version: "0.1.0"
+    version: "0.2.0"
     description: "Provides early-stage screening of tie-in opportunities with fluid, flow assurance, and process checks."
     repo: "equinor/neqsim-community-agents"
     path: "agents/tie-in-screening-agent/AGENT.md"
@@ -86,6 +86,8 @@ agents:
       - neqsim-hydrate-screening
       - neqsim-separator-modelling
       - neqsim-resource-classification-screening
+    context_skills:
+      - neqsim-norwegian-continental-shelf-data
     supported_domains:
       - field-development
       - tie-in-screening
@@ -265,8 +267,8 @@ agents:
       - flow-assurance
 
   - name: ncs-production-analysis-agent
-    version: "0.1.0"
-    description: "Coordinates public Norwegian Continental Shelf (NCS) production analysis by combining a source-attributed NCS reference-facts database with reservoir-depletion, asset-value, and energy-emissions screening to frame production, resource-accounting, and field-inventory studies before a validated NeqSim reservoir/economics workflow."
+    version: "0.2.0"
+    description: "Coordinates public Norwegian Continental Shelf (NCS) production analysis by combining a source-attributed NCS reference-facts database, live Sodir DataService host-field context (monthly rates, GOR/water-cut trends, ullage proxy, nearby discoveries), and Gassco UMM export-availability events with reservoir-depletion, asset-value, and energy-emissions screening to frame production, tie-in host, export-availability, resource-accounting, and field-inventory studies before a validated NeqSim reservoir/process/economics workflow."
     repo: "equinor/neqsim-community-agents"
     path: "agents/ncs-production-analysis-agent/AGENT.md"
     required_skills:
@@ -279,6 +281,8 @@ agents:
       - reservoir-engineering
       - production-analysis
       - open-data
+      - tie-in-screening
+      - gas-export
       - economics
 
   - name: emissions-abatement-screening-agent
@@ -401,7 +405,7 @@ agents:
       - energy
 
   - name: gas-export-pipeline-agent
-    version: "0.1.0"
+    version: "0.2.0"
     description: "Performs preliminary gas-export pipeline screening by chaining line velocity, pressure drop, and export compression power checks."
     repo: "equinor/neqsim-community-agents"
     path: "agents/gas-export-pipeline-agent/AGENT.md"
@@ -409,6 +413,8 @@ agents:
       - neqsim-line-velocity-check
       - neqsim-pressure-drop-screening
       - neqsim-compressor-power-screening
+    context_skills:
+      - neqsim-norwegian-continental-shelf-data
     supported_domains:
       - process
       - flow-assurance

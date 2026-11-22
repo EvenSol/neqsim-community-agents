@@ -29,3 +29,15 @@ I have downloaded the Sodir yearly saleable-production CSV export. Ingest it, th
 ```text
 For a screening gas concept with a 20 Gsm3 recoverable volume declining from 300 to 80 bara at 8 MSm3/day over 15 years, build a reservoir-depletion profile, then run an NPV screening at a given gas price and discount rate and an energy/emissions screening. Name the validated NeqSim reservoir and economics workflows and prepare a screening report outline with assumptions and limitations.
 ```
+
+## Tie-in host context (live Sodir data)
+
+```text
+Build a public host context for GRANE as a tie-in host. Pull its monthly saleable production from the Sodir DataService, report the last 12 months of oil and gas rates, the gross GOR and water-cut trend versus the previous 12 months, and the historic-peak ullage proxy per stream with its caveat. List undeveloped discoveries within 40 km with distance, HC type, status and recoverable oil equivalent. Quote the Sodir attribution and the retrieval date.
+```
+
+## Gas-export availability (Gassco UMM)
+
+```text
+I saved the Gassco UMM event table as umm_events.csv (times in Oslo local time). Keep the latest revision of each event and report the worst concurrent unavailable capacity for Kollsnes between 1 June and 30 June, with Gassco's uncertainty band, the available capacity at the peak, and the caveats. Do not fetch umm.gassco.no.
+```

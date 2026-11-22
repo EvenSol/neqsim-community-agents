@@ -144,7 +144,7 @@ Each catalog entry maps to a harness `Agent` (name, description, `allowed_skills
 | --- | --- | --- |
 | [PVT Agent](agents/pvt-agent/README.md) | Fluid characterization, composition checks, phase behavior evaluation, and thermodynamic analysis | `neqsim-fluid-quality-check` |
 | [Hydrate Screening Agent](agents/hydrate-screening-agent/README.md) | Preliminary hydrate risk assessment | `neqsim-hydrate-screening` |
-| [Tie-In Screening Agent](agents/tie-in-screening-agent/README.md) | Early-stage screening of tie-in opportunities | `neqsim-fluid-quality-check`, `neqsim-hydrate-screening`, `neqsim-separator-modelling` |
+| [Tie-In Screening Agent](agents/tie-in-screening-agent/README.md) | Early-stage screening of tie-in opportunities, with public NCS host context (Sodir) and export availability (Gassco UMM) | `neqsim-fluid-quality-check`, `neqsim-hydrate-screening`, `neqsim-separator-modelling`, `neqsim-resource-classification-screening` (context: `neqsim-norwegian-continental-shelf-data`) |
 | [Process Screening Agent](agents/process-screening-agent/README.md) | High-level process engineering screening studies | `neqsim-separator-modelling` |
 | [Process Safety Agent](agents/process-safety-agent/README.md) | Early-stage fire-case relief load and depressurization screening | `neqsim-relief-load-screening`, `neqsim-depressurization-screening` |
 | [Process Engineer Agent](agents/process-engineer-agent/README.md) | Early-stage screening of unit operations against line-velocity and compressor operating-window guidelines | `neqsim-line-velocity-check`, `neqsim-compressor-operating-window-check` |

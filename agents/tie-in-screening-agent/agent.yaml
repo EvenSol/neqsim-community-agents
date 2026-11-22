@@ -5,6 +5,8 @@ required_skills:
 - neqsim-hydrate-screening
 - neqsim-separator-modelling
 - neqsim-resource-classification-screening
+context_skills:
+- neqsim-norwegian-continental-shelf-data
 supported_domains:
 - field-development
 - tie-in-screening
@@ -18,6 +20,8 @@ inputs:
 - pressure_temperature_conditions
 - water_and_contaminant_assumptions
 - host_constraints
+- ncs_host_field_name_and_search_radius
+- saved_gassco_umm_export
 - project_maturity_stage
 - screening_objective
 outputs:
@@ -25,9 +29,13 @@ outputs:
 - data_quality_assessment
 - flow_assurance_risk_list
 - process_screening_findings
+- ncs_host_production_context
+- nearby_tie_in_discovery_candidates
+- gas_export_availability_context
 - resource_classification_indicator
 - recommended_neqsim_workflows
 - required_follow_up_studies
 - validation_checklist
+agent_type: community-agent
 human_review_required: true
-version: 0.1.0
+version: 0.2.0
