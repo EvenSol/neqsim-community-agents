@@ -4,7 +4,8 @@ Turns the designs and calculated results of a NeqSim study into 3D figures, usin
 open tools only. It assists engineers and does not replace engineering judgement.
 
 ```
-study results (NeqSim objects, datasheet values, stated assumptions)
+study results (NeqSim process model, DEXPI P&ID, design data, layout study,
+               datasheet values, stated assumptions)
         |
         v
   what is the figure for?  ->  report figure | CAD exchange | editable model | presentation
@@ -15,6 +16,8 @@ study results (NeqSim objects, datasheet values, stated assumptions)
         +--> pipeline: tube coloured by temperature, pressure or holdup, low points
         +--> layout: equipment coloured by utilisation
         +--> process area: equipment, valves, routed piping with a stream value
+        +--> a NeqSim ProcessSystem or a DEXPI P&ID, drawn as it is
+        +--> tie-in scope: existing grey, new blue, modified orange
         |
         v
   read the caption  ->  every assumed thickness, exaggeration and enlarged
@@ -41,6 +44,10 @@ generated script and gives the command to run it elsewhere.
 - `neqsim-engineering-3d-illustration`
 - `neqsim-cfd-coupling`, `neqsim-fem-coupling`, `neqsim-separator-modelling`,
   `neqsim-pipe-route-profile`, `neqsim-subsea-layout-geometry` (as relevant)
+- From the NeqSim main repository, as relevant: `neqsim-pid-process-operations`,
+  `neqsim-dexpi-conformance-validation`, `neqsim-plant-layout-study`,
+  `neqsim-plant-layout-geometry`, `neqsim-capacity-and-utilization-analysis`,
+  `neqsim-engineering-design-package`
 
 ## Typical requests
 
@@ -48,6 +55,8 @@ generated script and gives the command to run it elsewhere.
 - "Show the flowline temperature along the route and mark the low points."
 - "Give me a 3D picture of the process area with the valves and piping, coloured
   by utilisation and stream temperature."
+- "Draw this process model in 3D and show the new booster compressor as the tie-in."
+- "Turn this DEXPI P&ID into a 3D picture."
 - "Export the scrubber as a STEP file."
 - "Make figures of the velocity field from the OpenFOAM bend case."
 - "Render the separator for the front page of the report."

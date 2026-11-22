@@ -27,6 +27,18 @@ Using public synthetic data, draw a 3D view of a separation and recompression ar
 I have run a NeqSim Separator and a PipeBeggsAndBrills in Python. Read the geometry, level and profiles from the two objects and draw the separator cutaway and the pipeline coloured by pressure. Tell me which values came from NeqSim and which I still have to supply.
 ```
 
+## Tie-In Scope from a Process Model
+
+```text
+I have a NeqSim ProcessSystem for the host with a new booster compressor 23-KA-001 and cooler 23-HA-001 added for the tie-in. Draw the whole process in 3D from the model, mark those two items and their lines as new, and give me two figures from the same camera: one coloured by status and one by stream temperature. List every position, size and line diameter you had to assume.
+```
+
+## A DEXPI P&ID in 3D
+
+```text
+Draw the attached DEXPI P&ID in 3D with its tagged equipment, lines and inline valves. Tell me how many valves are on branches or off-page lines and therefore not drawn, and which equipment sizes I should supply to make the picture to scale.
+```
+
 ## OpenFOAM Figures
 
 ```text
