@@ -65,6 +65,11 @@ Typical outputs include:
 - `line-velocity-check` mapped to community catalog ID `neqsim-line-velocity-check`
 - `hydrate-margin-check` mapped to community catalog ID `neqsim-hydrate-margin-check`
 
+For figures, load as context skills when relevant:
+
+- `neqsim-pipeline-profile-plot` plots NeqSim pressure, temperature and hydrate margin along KP (stacked profile, P-T path, combined dashboard)
+- `neqsim-offshore-field-map` draws the route, host and existing Sodir pipelines on a field map with EMODnet bathymetry
+
 # Example Usage
 
 ```text

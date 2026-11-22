@@ -3,6 +3,8 @@ description: Provides early-stage flow assurance screening that checks operating
 required_skills:
 - neqsim-hydrate-margin-check
 - neqsim-wax-margin-check
+context_skills:
+- neqsim-pipeline-profile-plot
 supported_domains:
 - flow-assurance
 - operating-limits

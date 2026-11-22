@@ -5,6 +5,9 @@ required_skills:
 - neqsim-pressure-drop-screening
 - neqsim-line-velocity-check
 - neqsim-hydrate-margin-check
+context_skills:
+- neqsim-pipeline-profile-plot
+- neqsim-offshore-field-map
 supported_domains:
 - flow-assurance
 - process-engineering

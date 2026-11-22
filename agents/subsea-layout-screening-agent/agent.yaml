@@ -5,6 +5,8 @@ required_skills:
 - neqsim-subsea-layout-geometry
 - neqsim-bathymetry-profile-screening
 - neqsim-pipe-route-profile
+context_skills:
+- neqsim-offshore-field-map
 supported_domains:
 - field-development
 - subsea-layout
