@@ -106,6 +106,9 @@ EXPECTED_AGENTS = {
         "neqsim-production-network-routing",
         "neqsim-reservoir-depletion-screening",
     ],
+    "engineering-3d-illustration-agent": [
+        "neqsim-engineering-3d-illustration",
+    ],
     "concept-selection-agent": [
         "neqsim-resource-classification-screening",
         "neqsim-capex-opex-screening",

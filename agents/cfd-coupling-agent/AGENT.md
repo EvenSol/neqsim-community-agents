@@ -141,6 +141,10 @@ inventing it.
   the mass-transfer and shear enhancement factors; vibration screening pairs with
   unsteady CFD; `fem-coupling-agent` consumes the film coefficient and the
   near-wall heat-flux distribution and resolves what happens inside the wall.
+  `engineering-3d-illustration-agent` draws the solved case once it has passed the
+  quality gate - surface, cut-plane, clipped and streamline figures of the chosen
+  field, read from the `foamToVTK` export - and can supply a vessel's wetted
+  volume as STL when a geometry is needed for meshing.
 
 # Limitations
 

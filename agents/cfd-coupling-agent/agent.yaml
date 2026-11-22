@@ -3,7 +3,10 @@ description: "Runs single-phase and multiphase CFD from whatever engineering inf
 agent_type: community-agent
 required_skills:
 - neqsim-cfd-coupling
+context_skills:
+- neqsim-engineering-3d-illustration
 coordinated_agents:
+- engineering-3d-illustration-agent
 - flow-assurance-agent
 - fem-coupling-agent
 supported_domains:

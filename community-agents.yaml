@@ -4,7 +4,7 @@
 # consumed by the main NeqSim ecosystem.
 
 catalog_version: "1.0"
-last_updated: "2026-07-11"
+last_updated: "2026-11-22"
 trust: "community"
 
 agents:
@@ -608,3 +608,18 @@ agents:
       - insulation-and-cooldown
       - materials-and-mechanical
       - mesh-quality
+
+  - name: engineering-3d-illustration-agent
+    version: "0.1.0"
+    description: "Turns the designs and calculated results of a NeqSim study into 3D figures with open tools. Builds one scene from stated inputs - a vessel cutaway with liquid levels, internals and nozzles, a pipeline coloured by a calculated field, an equipment layout coloured by utilisation, or a process area with equipment, valves and routed piping carrying a stream value - reads geometry and results from a NeqSim separator or pipeline, chooses the backend for the purpose (PyVista for report figures, CadQuery for STEP and STL, OpenSCAD for an editable model, Blender for a presentation render), draws the fields of a solved OpenFOAM case, and hands every figure over with a caption that states the source of the numbers and every out-of-scale choice."
+    repo: "equinor/neqsim-community-agents"
+    path: "agents/engineering-3d-illustration-agent/AGENT.md"
+    required_skills:
+      - neqsim-engineering-3d-illustration
+    supported_domains:
+      - visualization
+      - reporting
+      - process-engineering
+      - flow-assurance
+      - piping-and-layout
+      - cfd-post-processing
