@@ -59,6 +59,8 @@ Current skill mappings used by the example agents:
 | `dynamic-instrument-controller-setup` | `neqsim-dynamic-instrument-controller-setup` |
 | `hydrate-margin-check` | `neqsim-hydrate-margin-check` |
 | `wax-margin-check` | `neqsim-wax-margin-check` |
+| `offshore-field-map` | `neqsim-offshore-field-map` |
+| `pipeline-profile-plot` | `neqsim-pipeline-profile-plot` |
 
 ## What Is An Engineering Agent?
 

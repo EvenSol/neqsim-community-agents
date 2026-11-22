@@ -9,6 +9,7 @@ context_skills:
 - neqsim-pipe-route-profile
 - neqsim-subsea-layout-geometry
 - neqsim-hydrate-margin-check
+- neqsim-pipeline-profile-plot
 agent_type: community-agent
 coordinated_agents:
 - pipe-route-screening-agent

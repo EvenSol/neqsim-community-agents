@@ -85,6 +85,10 @@ Context skills, used when relevant:
 - `subsea-layout-geometry` mapped to `neqsim-subsea-layout-geometry`, to place the structures that bound the section
 - `hydrate-margin-check` mapped to `neqsim-hydrate-margin-check`, when the profile feeds a cooldown or hydrate question
 
+For figures, load as context skills when relevant:
+
+- `neqsim-pipeline-profile-plot` plots NeqSim pressure, temperature and hydrate margin along KP (stacked profile, P-T path, combined dashboard)
+
 # Example Usage
 
 ```text

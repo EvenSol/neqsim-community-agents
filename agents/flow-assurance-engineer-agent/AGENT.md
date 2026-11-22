@@ -59,6 +59,10 @@ Typical outputs include:
 - `hydrate-margin-check` mapped to community catalog ID `neqsim-hydrate-margin-check`
 - `wax-margin-check` mapped to community catalog ID `neqsim-wax-margin-check`
 
+For figures, load as context skills when relevant:
+
+- `neqsim-pipeline-profile-plot` plots NeqSim pressure, temperature and hydrate margin along KP (stacked profile, P-T path, combined dashboard)
+
 # Example Usage
 
 ```text

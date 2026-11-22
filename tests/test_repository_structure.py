@@ -106,6 +106,10 @@ EXPECTED_AGENTS = {
         "neqsim-production-network-routing",
         "neqsim-reservoir-depletion-screening",
     ],
+    "field-visualization-agent": [
+        "neqsim-offshore-field-map",
+        "neqsim-pipeline-profile-plot",
+    ],
     "concept-selection-agent": [
         "neqsim-resource-classification-screening",
         "neqsim-capex-opex-screening",

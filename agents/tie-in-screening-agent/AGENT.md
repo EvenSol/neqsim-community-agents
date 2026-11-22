@@ -71,6 +71,11 @@ Typical outputs include:
 - `separator-modelling` mapped to community catalog ID `neqsim-separator-modelling`
 - `resource-classification-screening` mapped to community catalog ID `neqsim-resource-classification-screening`
 
+For figures, load as context skills when relevant:
+
+- `neqsim-pipeline-profile-plot` plots NeqSim pressure, temperature and hydrate margin along KP (stacked profile, P-T path, combined dashboard)
+- `neqsim-offshore-field-map` draws the route, host and existing Sodir pipelines on a field map with EMODnet bathymetry
+
 # Example Usage
 
 ```text

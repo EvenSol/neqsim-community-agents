@@ -5,6 +5,9 @@ required_skills:
 - neqsim-hydrate-screening
 - neqsim-separator-modelling
 - neqsim-resource-classification-screening
+context_skills:
+- neqsim-pipeline-profile-plot
+- neqsim-offshore-field-map
 supported_domains:
 - field-development
 - tie-in-screening

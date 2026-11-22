@@ -66,6 +66,10 @@ Typical outputs include:
 - `bathymetry-profile-screening` mapped to community catalog ID `neqsim-bathymetry-profile-screening`
 - `pipe-route-profile` mapped to community catalog ID `neqsim-pipe-route-profile`
 
+For figures, load as context skills when relevant:
+
+- `neqsim-offshore-field-map` draws the route, host and existing Sodir pipelines on a field map with EMODnet bathymetry
+
 # Example Usage
 
 ```text

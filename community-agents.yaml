@@ -4,7 +4,7 @@
 # consumed by the main NeqSim ecosystem.
 
 catalog_version: "1.0"
-last_updated: "2026-07-11"
+last_updated: "2026-11-22"
 trust: "community"
 
 agents:
@@ -344,6 +344,27 @@ agents:
       - pipeline-integrity
       - flow-assurance
       - survey-data-processing
+
+  - name: field-visualization-agent
+    version: "0.1.0"
+    description: "Produces maps and pipeline profile illustrations for NeqSim tie-in and flow-assurance studies, combining open Sodir FactMaps and EMODnet bathymetry data with NeqSim pipeline pressure, temperature and hydrate-margin results."
+    repo: "equinor/neqsim-community-agents"
+    path: "agents/field-visualization-agent/AGENT.md"
+    required_skills:
+      - neqsim-offshore-field-map
+      - neqsim-pipeline-profile-plot
+    context_skills:
+      - neqsim-pipe-route-profile
+      - neqsim-bathymetry-profile-screening
+      - neqsim-hydrate-margin-check
+      - neqsim-field-layout-import
+      - neqsim-norwegian-continental-shelf-data
+    supported_domains:
+      - visualization
+      - subsea
+      - flow-assurance
+      - field-development
+      - open-data
 
   - name: asset-economics-agent
     version: "0.1.0"

@@ -1,0 +1,39 @@
+name: field-visualization-agent
+description: Produces maps and pipeline profile illustrations for NeqSim tie-in and flow-assurance studies, combining open Sodir FactMaps and EMODnet bathymetry data with NeqSim pipeline pressure, temperature and hydrate-margin results.
+required_skills:
+- neqsim-offshore-field-map
+- neqsim-pipeline-profile-plot
+context_skills:
+- neqsim-pipe-route-profile
+- neqsim-bathymetry-profile-screening
+- neqsim-hydrate-margin-check
+- neqsim-field-layout-import
+- neqsim-norwegian-continental-shelf-data
+agent_type: community-agent
+coordinated_agents:
+- tie-in-screening-agent
+- pipe-route-screening-agent
+- subsea-layout-screening-agent
+- flow-assurance-engineer-agent
+supported_domains:
+- visualization
+- subsea
+- flow-assurance
+- field-development
+- open-data
+inputs:
+- host_facility_name_or_coordinates_and_map_radius
+- new_well_and_tie_in_positions
+- candidate_route_points_or_kp_depth_survey
+- well_stream_composition_rate_pressure_temperature
+- pipeline_diameter_roughness_heat_transfer_and_ambient
+- hydrate_margin_guideline_and_requested_figures
+outputs:
+- interactive_field_map_html_and_static_map
+- route_length_and_emodnet_depth_profile
+- neqsim_pressure_temperature_hydrate_profile
+- hydrate_margin_screening_summary
+- stacked_profile_pt_path_and_combined_figures
+- data_sources_assumptions_and_validation_checklist
+human_review_required: true
+version: 0.1.0
