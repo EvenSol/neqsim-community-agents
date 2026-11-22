@@ -198,6 +198,9 @@ inventing it.
   effective U-value; `flow-assurance-engineer-agent` consumes the U-multiplier for
   its pipeline temperature profile; `piping-mechanical-agent` consumes the metal
   temperature gradient and the wall stress.
+  `engineering-3d-illustration-agent` draws the equipment, piping or pipeline the
+  solid model belongs to, with the process results on it, to accompany the field
+  figures this agent renders itself.
 
 # Limitations
 

@@ -151,6 +151,7 @@ Each catalog entry maps to a harness `Agent` (name, description, `allowed_skills
 | [Dynamic Process Preparation Agent](agents/dynamic-process-preparation-agent/README.md) | Prepares NeqSim process systems and process models for dynamic calculations | `neqsim-dynamic-process-preparation` |
 | [Dynamic Instrument Controller Agent](agents/dynamic-instrument-controller-agent/README.md) | Adds NeqSim transmitters and PID-style controllers for dynamic simulations | `neqsim-dynamic-instrument-controller-setup` |
 | [Flow Assurance Engineer Agent](agents/flow-assurance-engineer-agent/README.md) | Early-stage screening of operating points against hydrate-margin and wax-margin guidelines | `neqsim-hydrate-margin-check`, `neqsim-wax-margin-check` |
+| [Engineering 3D Illustration Agent](agents/engineering-3d-illustration-agent/README.md) | 3D figures of vessels, pipelines, layouts and process areas with their calculated results, using PyVista, CadQuery, OpenSCAD and Blender; figures of solved OpenFOAM cases | `neqsim-engineering-3d-illustration` |
 
 ## How To Create A New Agent
 

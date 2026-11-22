@@ -1,0 +1,58 @@
+name: engineering-3d-illustration-agent
+description: "Turns the designs and calculated results of a NeqSim study into 3D figures with open tools. Builds one scene from stated inputs - a vessel cutaway with liquid levels, internals and nozzles, a pipeline coloured by a calculated field, an equipment layout coloured by utilisation, or a process area with equipment, valves and routed piping carrying a stream value - draws a NeqSim process model or a DEXPI P&ID directly through the NeqSim main repository's process graph and DEXPI reader, marks new and modified items for a tie-in, reads geometry and results from a NeqSim separator, pipeline or mechanical design data, uses layout-study positions where they exist, chooses the backend for the purpose (PyVista for report figures, CadQuery for STEP and STL, OpenSCAD for an editable model, Blender for a presentation render), draws the fields of a solved OpenFOAM case, and hands every figure over with a caption that states the source of the numbers and every out-of-scale choice."
+agent_type: community-agent
+required_skills:
+- neqsim-engineering-3d-illustration
+context_skills:
+- neqsim-cfd-coupling
+- neqsim-fem-coupling
+- neqsim-separator-modelling
+- neqsim-pipe-route-profile
+- neqsim-subsea-layout-geometry
+- neqsim-pid-process-operations
+- neqsim-dexpi-conformance-validation
+- neqsim-plant-layout-study
+- neqsim-plant-layout-geometry
+- neqsim-capacity-and-utilization-analysis
+- neqsim-engineering-design-package
+coordinated_agents:
+- cfd-coupling-agent
+- fem-coupling-agent
+- process-engineer-agent
+- flow-assurance-engineer-agent
+- tie-in-screening-agent
+- debottlenecking-agent
+supported_domains:
+- visualization
+- reporting
+- process-engineering
+- flow-assurance
+- piping-and-layout
+- cfd-post-processing
+inputs:
+- vessel_dimensions_levels_nozzles_and_internals
+- pipeline_profile_and_calculated_fields
+- equipment_positions_sizes_and_utilisation
+- pipe_routes_diameters_valves_and_stream_values
+- neqsim_separator_or_pipeline_object
+- neqsim_process_system
+- dexpi_pid_xml_file
+- tie_in_scope_new_and_modified_tags
+- layout_study_dataset_and_mechanical_design_data
+- solved_openfoam_case_directory
+- figure_purpose_and_audience
+outputs:
+- backend_neutral_scene_with_facts
+- figure_caption_with_scale_and_source_notes
+- report_figures_png
+- tie_in_scope_figure_existing_new_modified
+- list_of_assumed_positions_sizes_and_diameters
+- step_stl_gltf_solids
+- editable_openscad_model
+- presentation_render
+- openfoam_field_figures
+- wetted_volume_stl_for_meshing
+- backend_recommendation_and_run_commands
+- validation_checklist
+human_review_required: true
+version: 0.1.0

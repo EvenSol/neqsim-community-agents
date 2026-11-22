@@ -4,8 +4,10 @@ agent_type: community-agent
 required_skills:
 - neqsim-fem-coupling
 context_skills:
+- neqsim-engineering-3d-illustration
 - neqsim-cfd-coupling
 coordinated_agents:
+- engineering-3d-illustration-agent
 - cfd-coupling-agent
 - subsea-cooldown-agent
 - flow-assurance-engineer-agent
