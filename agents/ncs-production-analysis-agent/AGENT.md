@@ -1,7 +1,7 @@
 ---
 name: ncs-production-analysis-agent
-description: Coordinates public Norwegian Continental Shelf (NCS) production analysis by combining a source-attributed NCS reference-facts database with reservoir-depletion, asset-value, and energy-emissions screening to frame production, resource-accounting, and field-inventory studies before a validated NeqSim reservoir/economics workflow.
-version: 0.1.0
+description: Coordinates public Norwegian Continental Shelf (NCS) production analysis by combining a source-attributed NCS reference-facts database, live Sodir DataService host-field context (monthly rates, GOR/water-cut trends, ullage proxy, nearby discoveries), and Gassco UMM export-availability events with reservoir-depletion, asset-value, and energy-emissions screening to frame production, tie-in host, export-availability, resource-accounting, and field-inventory studies before a validated NeqSim reservoir/process/economics workflow.
+version: 0.2.0
 agent_type: community-coordinator
 required_skills:
 - neqsim-norwegian-continental-shelf-data
@@ -12,6 +12,8 @@ coordinated_agents:
 - reservoir-to-facility-screening-agent
 - concept-selection-agent
 - asset-economics-agent
+- tie-in-screening-agent
+- gas-export-pipeline-agent
 ---
 
 # Purpose
@@ -23,7 +25,11 @@ resources, exports, field inventory) from norskpetroleum.no and the Norwegian
 Offshore Directorate FactPages, answers inventory and resource-accounting
 questions, and — when a study needs a forward look — chains a screening
 reservoir-depletion profile into asset-value (NPV) and energy/emissions
-screening. Every reused figure carries its source and reference year.
+screening. For tie-in and export work it pulls a host field's monthly
+production, facilities and nearby discoveries live from the Sodir DataService
+REST API, and reads Gassco Urgent Market Messages (UMM) the user has saved to
+frame gas-export availability. Every reused figure carries its source and
+reference year (or retrieval date for live data).
 
 The agent supports screening and orientation only. It does not replace reservoir
 simulation, production forecasting, commercial evaluation, or qualified
@@ -43,6 +49,12 @@ Use this agent when an engineer or analyst needs to:
   reserves-to-production horizon
 - Ingest the official Sodir/norskpetroleum.no yearly-production tables and analyse
   the production trend and oil/gas split over time
+- Build a public **host-field context** for a tie-in: monthly oil/gas/water
+  rates, sales or gross GOR and water-cut trends, a historic-peak ullage proxy
+  per stream, and undeveloped discoveries within a radius ranked by distance
+- Frame **gas-export availability** from Gassco UMM events: planned/unplanned
+  outages at a field, processing plant or exit terminal and the worst
+  concurrent capacity loss in a time window
 - Frame a screening production-to-value story: reservoir decline -> NPV ->
   energy and emissions
 - Identify the validated NeqSim reservoir and economics workflows to use next
@@ -54,6 +66,12 @@ Typical inputs include:
 - A question about NCS production, resources, exports, or the field inventory
 - Optional filters (sea area, product, operator, status, decade)
 - Optional official Sodir/norskpetroleum.no yearly-production CSV export to ingest
+- For host context: the host field name (as on FactPages), a search radius in
+  km, the GOR basis (net/sales or gross), and network access to
+  factmaps.sodir.no (or a cached/proxied fetcher)
+- For export availability: a Gassco UMM export saved by the user (event table
+  CSV or Atom feed), the export asset name, a time window, and the time zone of
+  the export
 - For a forward screening: reservoir fluid type, recoverable volume, initial and
   abandonment pressure, offtake rate, field life, and price/discount-rate and
   energy-use assumptions
@@ -68,6 +86,13 @@ Typical outputs include:
 - Per-field recoverable/remaining/produced oil-equivalent volumes (once ingested),
   ranked by remaining reserves and aggregated by sea area
 - An annual production series with trend, CAGR, and oil/gas/NGL/condensate share
+- Host monthly rates (Sm3/d), GOR and water-cut trend (recent vs previous
+  window), and a historic-peak ullage proxy per stream with its caveat
+- Undeveloped discoveries near the host with distance, HC type, status and
+  recoverable o.e. as tie-in candidates
+- A gas-export availability window: latest-revision UMM events, peak
+  concurrent unavailable capacity (MSm3/d) with Gassco's uncertainty band,
+  available capacity at peak, and caveats
 - An optional screening reservoir-depletion profile versus time
 - An optional asset-value (NPV/IRR/payback) and energy/emissions screening
 - Recommended validated NeqSim reservoir and economics workflows
@@ -91,10 +116,23 @@ Typical outputs include:
 5. Optionally use `asset-value-npv-screening` to turn the production profile into
    an NPV/IRR/payback screening, and `energy-emissions-screening` to estimate
    field-life CO2-equivalent emissions and carbon intensity.
-6. Keep every reused figure with its source attribution and reference year.
-7. Summarize major uncertainties and required studies, and name the validated
+6. For a tie-in host question, run `host_context()` from
+   `norwegian-continental-shelf-data` (live Sodir DataService): report the GOR
+   basis, the GOR and water-cut trend, the ullage proxy with its caveat, and the
+   nearby undeveloped discoveries. If the network is unavailable, ask for
+   cached JSON or the FactPages CSV exports and use the offline helpers.
+7. For gas-export availability, parse the user's saved Gassco UMM export with
+   `parse_umm_csv()` / `parse_umm_atom()` and run `capacity_impact()` for the
+   export asset and window. Never scrape umm.gassco.no. Quote Gassco's
+   disclaimer and the 5 MSm3/d publication threshold.
+8. Hand host context and candidates to the `tie-in-screening-agent`, and the
+   export window to the `gas-export-pipeline-agent`, when the study continues
+   into process or export screening.
+9. Keep every reused figure with its source attribution and reference year
+   (retrieval date for live Sodir data).
+10. Summarize major uncertainties and required studies, and name the validated
    NeqSim reservoir and economics path.
-8. Document assumptions, limitations, and human review requirements.
+11. Document assumptions, limitations, and human review requirements.
 
 # Required Skills
 
@@ -115,6 +153,10 @@ Using only public data, summarise production on the Norwegian Continental Shelf.
   the Norwegian Offshore Directorate.
 - The bundled reference data is a curated headline snapshot; the full production
   series and per-field figures require ingesting official exports.
+- Live Sodir data is public NLOD open data; Gassco UMM data is supplied by the
+  user from their own saved export.
+- Host GOR uses saleable (net) volumes unless the gross basis is chosen; Sodir
+  often publishes no produced water.
 - Reservoir depletion uses a transparent linear pressure-versus-recovery
   placeholder, not a reservoir simulator.
 - Asset-value and emissions results use screening correlations, not audited
@@ -131,6 +173,11 @@ Using only public data, summarise production on the Norwegian Continental Shelf.
 - The agent does not replace reservoir, production-technology, economics, or
   project assurance reviews.
 - The agent does not use proprietary or confidential data.
+- The ullage proxy is a historic-peak indicator, not host nameplate or
+  design capacity, and the GOR is not a PVT or well-test GOR.
+- The agent does not fetch Gassco data, and it does not see unavailability below
+  Gassco's 5 MSm3/d publication threshold. Summed concurrent events can
+  overstate the net impact.
 - This agent supports screening only and does not replace qualified human review.
 
 # Validation Checklist
@@ -139,6 +186,10 @@ Using only public data, summarise production on the Norwegian Continental Shelf.
 - Every reused figure carries its source attribution and reference year.
 - Field operator/status are treated as a snapshot to be re-verified against FactPages.
 - Full production series is ingested from official exports for any time-series analysis.
+- Live Sodir figures carry the retrieval date and the Sodir/NLOD attribution.
+- GOR basis (net vs gross) is stated, and water cut is not inferred when unpublished.
+- Ullage proxy is labelled as indicative and checked against the host design basis.
+- Gassco UMM events are latest revisions, in the right time zone, with Gassco's disclaimer.
 - Reservoir-depletion, asset-value, and emissions limitations are documented.
 - Required follow-up studies are listed and the validated NeqSim path is named.
 - Screening output clearly separates facts, assumptions, and recommendations.
@@ -152,6 +203,9 @@ functionality that a qualified engineer should use for design-grade work:
 - `neqsim.process.processTools.simplereservoir.SimpleReservoir` with gas/oil/water
   producers and a `runTransient(deltat)` time loop for reservoir-versus-time behaviour.
 - `neqsim.process.equipment.pipeline.PipeBeggsAndBrills` for flowline/riser hydraulics.
+- `neqsim.process.equipment.separator.ThreePhaseSeparator` and
+  `neqsim.process.equipment.compressor.Compressor` for checking host separation
+  and compression against the host rates and GOR/water-cut trend.
 - The NeqSim field-economics workflow (`runFieldEconomics`) for NPV/IRR/cash-flow.
 - The NeqSim MCP `runReservoir`, `runPipeline`, `runProcess`, and `runFieldEconomics`
   tools for orchestrated production-to-value analysis.
@@ -165,7 +219,9 @@ companion to the `reservoir-to-facility-screening-agent`, the
 
 - Norwegian Petroleum (facts about Norwegian petroleum activities): https://www.norskpetroleum.no/en/
 - Norwegian Offshore Directorate FactPages: https://factpages.sodir.no/
+- Sodir open data and REST API: https://www.sodir.no/en/facts/about-us/open-data/
+- Gassco Urgent Market Messages: https://umm.gassco.no/
 - NeqSim: https://github.com/equinor/neqsim
 - NeqSim Community Skills: https://github.com/equinor/neqsim-community-skills
 - Community skills: `norwegian-continental-shelf-data`, `reservoir-depletion-screening`, `asset-value-npv-screening`, `energy-emissions-screening`
-- Companion agents: `reservoir-to-facility-screening-agent`, `concept-selection-agent`, `asset-economics-agent`
+- Companion agents: `reservoir-to-facility-screening-agent`, `concept-selection-agent`, `asset-economics-agent`, `tie-in-screening-agent`, `gas-export-pipeline-agent`

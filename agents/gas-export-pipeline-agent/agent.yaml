@@ -4,6 +4,8 @@ required_skills:
 - neqsim-line-velocity-check
 - neqsim-pressure-drop-screening
 - neqsim-compressor-power-screening
+context_skills:
+- neqsim-norwegian-continental-shelf-data
 supported_domains:
 - process
 - flow-assurance
@@ -19,13 +21,17 @@ inputs:
 - export_pressure
 - gas_temperature
 - compression_efficiency
+- export_asset_and_time_window
+- saved_gassco_umm_export
 outputs:
 - line_velocity_screening
 - pressure_drop_screening
 - export_compression_power_estimate
+- gas_export_availability_window
 - missing_information
 - recommended_follow_up_analysis
 - assumptions_and_limitations
 - validation_checklist
+agent_type: community-agent
 human_review_required: true
-version: 0.1.0
+version: 0.2.0

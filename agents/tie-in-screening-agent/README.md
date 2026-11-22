@@ -12,6 +12,9 @@ It helps engineers review available fluid data, identify potential flow assuranc
 - Identify required studies
 - Generate screening reports
 - Suggest NeqSim workflows
+- For an NCS host: pull public host production, GOR/water-cut trend, an
+  indicative ullage proxy and nearby undeveloped discoveries (Sodir), and frame
+  gas-export availability (Gassco UMM)
 
 ## Required Skills
 
@@ -19,6 +22,11 @@ It helps engineers review available fluid data, identify potential flow assuranc
 - `hydrate-screening`
 - `separator-modelling`
 - `resource-classification-screening`
+
+## Context Skills
+
+- `norwegian-continental-shelf-data` (`neqsim-norwegian-continental-shelf-data`),
+  used when the host is on the Norwegian Continental Shelf
 
 ## Directory Contents
 

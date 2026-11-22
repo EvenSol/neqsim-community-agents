@@ -17,3 +17,9 @@ Use the Tie-In Screening Agent to generate a screening report outline for a publ
 ```text
 Use the Tie-In Screening Agent to suggest NeqSim workflows for early tie-in screening using only public synthetic data. Include PVT, hydrate, and separator checks.
 ```
+
+## NCS Host Context
+
+```text
+Use the Tie-In Screening Agent to screen a gas-condensate discovery as a tie-in to an NCS host. Pull the host's public monthly production from Sodir, report the gross GOR and water-cut trend and the indicative ullage per stream, list undeveloped discoveries within 40 km, and use the host trend to frame separator and hydrate checks. State that the ullage is a historic-peak proxy, not nameplate capacity.
+```
